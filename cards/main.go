@@ -4,7 +4,7 @@ func main() {
 	cards := newDeck()
 
 	newDeckFromFile("my_deck")
-
+	cards.shuffle()
 	cards.display()
 
 	//hand, remaingCards := dealFunction(cards, 4)
