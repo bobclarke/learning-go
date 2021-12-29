@@ -22,5 +22,4 @@ func main() {
 		val := <-ch
 		fmt.Printf("Received %d\n", val)
 	}
-
 }
