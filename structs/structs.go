@@ -55,7 +55,7 @@ func NewSquare(x int, y int, length int) (*Square, error) {
 
 func main() {
 	// Create a square
-	mySquare, err := NewSquare(10, 10, 0)
+	mySquare, err := NewSquare(10, 10, 5)
 	if err != nil {
 		log.Fatalf("ERROR: unable to create Square. Reason: %v", err)
 
@@ -71,6 +71,6 @@ func main() {
 
 	// now check the new position
 	newPos := mySquare.position()
-	fmt.Printf("POSITION: %v\n", newPos)
+	fmt.Printf("NEW_POSITION: %v\n", newPos)
 
 }
