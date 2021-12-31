@@ -1,10 +1,8 @@
 package main
 
 import (
-	"bytes"
 	"encoding/json"
 	"fmt"
-	"io"
 	"log"
 	"net/http"
 )
@@ -22,13 +20,15 @@ func userInfo(login string) (*User, error) {
 		log.Fatalf("ERROR: unable to call %s - %s", url, err)
 	}
 
-	var buf bytes.Buffer // Create a buffer
+	defer resp.Body.Close()
 
-	io.Copy(&buf, resp.Body) // copy the http response to this buffer
+	//var buf bytes.Buffer // Create a buffer
+
+	//io.Copy(&buf, resp.Body) // copy the http response to this buffer
 
 	u := &User{} // Create an empty User instance - note, u is a pointer to this User instance
 
-	enc := json.NewDecoder(&buf) // Create a JSON decoder to decode our HTTP response
+	enc := json.NewDecoder(resp.Body) // Create a JSON decoder to decode our HTTP response
 
 	err = enc.Decode(u) // Decode the JSON response into the User struct
 	if err != nil {
