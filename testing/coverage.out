@@ -1,0 +1,7 @@
+mode: set
+github.com/bobclarke/go-testing/testing/main.go:8.13,10.16 2 0
+github.com/bobclarke/go-testing/testing/main.go:13.2,13.33 1 0
+github.com/bobclarke/go-testing/testing/main.go:10.16,12.3 1 0
+github.com/bobclarke/go-testing/testing/main.go:16.44,19.12 2 1
+github.com/bobclarke/go-testing/testing/main.go:23.2,24.20 2 1
+github.com/bobclarke/go-testing/testing/main.go:19.12,21.3 1 1

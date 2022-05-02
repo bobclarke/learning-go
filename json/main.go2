@@ -1,0 +1,36 @@
+package main
+
+import (
+	"encoding/json"
+	"fmt"
+)
+
+type SuperHero struct {
+	Realname string `json:"real_name"`
+	Alias    string `json:"alias"`
+	Hasdog   bool   `json:"has_dog"`
+}
+
+func main() {
+	var superHeros []SuperHero
+
+	var sh1 SuperHero
+	sh1.Realname = "Bruce Wayne"
+	sh1.Alias = "Batman"
+	sh1.Hasdog = false
+
+	var sh2 SuperHero
+	sh2.Realname = "Clarke Kent"
+	sh2.Alias = "Supeman"
+	sh2.Hasdog = false
+
+	superHeros = append(superHeros, sh1, sh2)
+
+	//b, err := json.Marshal(superHeros)
+	b, err := json.MarshalIndent(superHeros, "", "    ")
+	if err != nil {
+		fmt.Println("Error", err)
+	}
+
+	fmt.Println(string(b))
+}
