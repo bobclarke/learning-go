@@ -10,6 +10,7 @@ import (
 	"github.com/bobclarke/html-templates/pkg/render"
 )
 
+// Set the listening port
 const portNum = ":8090"
 
 //main is the main function of the main package
@@ -29,9 +30,12 @@ func main() {
 
 	render.Templates(&app)
 
-	http.HandleFunc("/home", handlers.Repo.Home)
-	http.HandleFunc("/about", handlers.Repo.About)
-
 	fmt.Printf("Starting webserver on port %s\n", portNum)
-	http.ListenAndServe(portNum, nil)
+
+	srv := http.Server{
+		Addr:    portNum,
+		Handler: routes(&app),
+	}
+	err = srv.ListenAndServe()
+	log.Fatal(err)
 }
