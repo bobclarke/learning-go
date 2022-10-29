@@ -39,11 +39,7 @@ func SetRepositoryForHandlers(r *Repository) {
 
 // Home is the home page handler
 func (m *Repository) Home(w http.ResponseWriter, r *http.Request) {
-	sm := make(map[string]string)
-	sm["foo"] = "bar"
-	render.RenderTemplates(w, "home.page.html", &models.TemplateData{
-		StringMap: sm,
-	})
+	render.RenderTemplates(w, "home.page.html", &models.TemplateData{})
 }
 
 // About is the home page handler
